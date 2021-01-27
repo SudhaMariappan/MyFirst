@@ -8,6 +8,7 @@
             </mat-form-field>
             <mat-form-field>
                 <input matInput type="email" formControlName="email" placeholder="Email">
+                <mat-error *ngIf="userDetails.controls.email.value.invalid">{{getErrorMessage()}}</mat-error>
             </mat-form-field>
             <mat-form-field>
                 <input matInput type="password" formControlName="password" placeholder="Password">
@@ -23,7 +24,7 @@
             </mat-form-field>
             <fieldset>
                 <legend>Address Details</legend>
-                <div formArray="listAddress">
+                <div formArrayName="listAddress">
                     <div *ngFor="let address of getControls();let j=index" [formGroupName]="j">
                         <mat-form-field>
                             <textarea matInput formControlName="addressline" placeholder="addressline"></textarea>
@@ -44,6 +45,9 @@
                             <mat-form-field>
                                 <input matInput type="text" formControlName="district" placeholder="Dsitrict">
                             </mat-form-field>
+                            <form class="example-form" [formGroup]="formGroup" (ngSubmit)="onFormSubmit()" ngNativeValidate>
+                            <mat-slide-toggle formControlName="default">Default</mat-slide-toggle>
+                            </form>
                 
                    </div>
                 </div>

@@ -10,7 +10,11 @@ export class RegisterComponent implements OnInit {
 
   public userDetails!:FormGroup;
   public listAddress!:FormArray;
-  constructor(private fb:FormBuilder) { }
+  public formGroup!:FormGroup;
+  default :boolean = true;
+  constructor(private fb:FormBuilder) {
+   
+   }
 
   ngOnInit(): void {
     this.userDetails=this.fb.group({
@@ -19,7 +23,9 @@ export class RegisterComponent implements OnInit {
       password:['',[Validators.required]],
       areacode:[''],
       mobile:[''],
+      default:[''],
       listAddress:this.fb.array([this.getAddress(0)])
+      
       })
   }
   getAddress(j:number): FormGroup {
@@ -28,6 +34,7 @@ export class RegisterComponent implements OnInit {
       country:[''],
       state:[''],
       district:['']
+      
     })
   }
   getControls(){
@@ -41,8 +48,23 @@ export class RegisterComponent implements OnInit {
     this.listAddress.removeAt(index)
   }
   onSubmit(){
-      localStorage.setItem('name',this.userDetails.controls.name.value);
-      localStorage.setItem('password',this.userDetails.controls.password.value);
+      console.log(this.userDetails.value)
+      
+      localStorage.setItem('userdetail', JSON.stringify(this.userDetails.value))
+      
+  }
+  onFormSubmit(){
+    if(this.default == true){
+      this.listAddress;['',Validators.required];
+
+    }
+  }
+  getErrorMessage(){
+    if(this.userDetails.controls.value.hasError('required')){
+        return 'please enter value';
+    }
+    return this.userDetails.controls.value.hasError('email') ? 'Not a valid email' : '' ;
+    
   }
 
 }

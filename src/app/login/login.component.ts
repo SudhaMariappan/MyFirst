@@ -25,6 +25,7 @@ export class LoginComponent implements OnInit {
   checkLogin(){
     if(localStorage.getItem('name')===this.loginDetails.controls.username.value && localStorage.getItem('password') === this.loginDetails.controls.password.value) {
       console.log("success")
+      this.router.navigate(['/dashboard']);
     }else{
       console.log("failed")
     }
