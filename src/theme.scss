@@ -1,0 +1,40 @@
+@import "../node_modules/@angular/material/theming";
+@include mat-core();
+
+
+$my-primary: mat-palette($mat-teal,800);
+$my-accent:mat-palette($mat-light-green,800);
+
+$my-theme: mat-light-theme($my-primary,$my-accent);
+
+@include angular-material-theme($my-theme);
+
+
+ .alternative{
+
+    $my-primary: mat-palette($mat-red,800);
+    $my-accent:mat-palette($mat-pink,800);
+
+    $my-theme: mat-light-theme($my-primary,$my-accent);
+
+    @include angular-material-theme($my-theme);
+
+
+}
+  .content .another{
+    $my-primary: mat-palette($mat-amber,800);
+    $my-accent:mat-palette($mat-orange,800);
+
+    $my-theme: mat-light-theme($my-primary,$my-accent);
+
+    @include angular-material-theme($my-theme);
+
+}
+ .contenr .oneanother{
+    $my-primary: mat-palette($mat-purple,800);
+    $my-accent:mat-palette($mat-blue,800);
+
+    $my-theme: mat-light-theme($my-primary,$my-accent);
+
+    @include angular-material-theme($my-theme);
+}

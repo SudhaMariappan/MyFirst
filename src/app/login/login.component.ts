@@ -11,13 +11,22 @@ import { Router} from '@angular/router';
 export class LoginComponent implements OnInit {
 
   public loginDetails!:FormGroup;
+  isTrue:any=localStorage.getItem('name');
+ 
+  
+  
+  
+  
+  
   constructor(private router:Router,private fb:FormBuilder) { }
-
   ngOnInit(): void {
     this.loginDetails=this.fb.group({
         username:[''],
-        password:['']
+        password:[''],
+        
     })
+    const body=document.getElementsByTagName('body')[0];
+    body.classList.add('login_body');
   }
   registerPage(){
     this.router.navigate(['/register']);

@@ -17,7 +17,10 @@ import { RegisterComponent } from './register/register.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
-
+import { HeaderComponent } from './header/header.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatIconModule} from '@angular/material/icon';
+import {MatListModule} from '@angular/material/list';
 
 
 @NgModule({
@@ -26,6 +29,7 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     LoginComponent,
     RegisterComponent,
     DashboardComponent,
+    HeaderComponent,
     
   ],
   imports: [
@@ -37,7 +41,7 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     MatSelectModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,MatDialogModule,MatIconModule,MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
